@@ -26,6 +26,8 @@ const Card = styled.div`
   ${flexCenter}
   flex-direction: column;
   max-width: 500px;
+  min-height: 300px;
+  max-height: 400px;
   width: 60vw;
   height: 40vh;
   border-radius: 8px;
