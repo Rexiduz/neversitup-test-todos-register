@@ -1,93 +1,13 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import axios from 'axios'
+
+import API from 'services/api'
+import { Container, Card, FormWrapper } from './AppStyled'
 
 // COMPONENTS
 import { Modal, notification as noti, Icon } from 'antd'
-import RegisTestForm from './Form'
-
-const flexCenter = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-const bgGradient = css`
-  background-color: #1fc8db;
-  background-image: linear-gradient(
-    141deg,
-    #9fb8ad 0%,
-    #1fc8db 51%,
-    #2cb5e8 75%
-  );
-`
-
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  ${flexCenter}
-  ${bgGradient}
-`
-const Card = styled.div`
-  ${flexCenter}
-  flex-direction: column;
-  max-width: 500px;
-  width: 60vw;
-  height: 40vh;
-  border-radius: 8px;
-  background: white;
-`
-
-const FormWrapper = styled.div`
-  width: 80%;
-
-  form {
-    > .ant-row.ant-form-item {
-      :last-child {
-        > * {
-          text-align: center;
-        }
-      }
-    }
-  }
-
-  button {
-    width: 40%;
-    height: 40px;
-  }
-`
-
-const apis = () => {
-  const endpoint = 'http://localhost:9000'
-
-  return {
-    user: {
-      create(data) {
-        const mock = {
-          _id: '5e346c73359b5e0012163450',
-          username: 'test',
-          createdAt: '2020-01-31T18:05:39.817Z',
-          updatedAt: '2020-01-31T18:05:39.817Z'
-        }
-
-        return true
-          ? Promise.resolve({
-              response: {
-                data: mock
-              }
-            })
-          : axios({
-              method: 'post',
-              url: endpoint + '/users/register/',
-              data
-            })
-      }
-    }
-  }
-}
+import RegisTestForm from 'components/Form'
 
 export default function App() {
-  const API = apis()
   const onSubmit = async (values, form) => {
     try {
       const { response: { data } = {} } = await API.user.create(values)
