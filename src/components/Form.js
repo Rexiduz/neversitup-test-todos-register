@@ -53,7 +53,7 @@ const NormalLoginForm = ({ form, onSubmit = () => {} }) => {
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
-          Log in
+          Create
         </Button>
       </Form.Item>
     </Form>

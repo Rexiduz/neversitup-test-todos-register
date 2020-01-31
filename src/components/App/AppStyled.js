@@ -30,6 +30,11 @@ const Card = styled.div`
   height: 40vh;
   border-radius: 8px;
   background: white;
+  > * {
+    :first-child {
+      margin-bottom: 20px;
+    }
+  }
 `
 
 const FormWrapper = styled.div`
@@ -48,6 +53,7 @@ const FormWrapper = styled.div`
   button {
     width: 40%;
     height: 40px;
+    font-size: 18px;
   }
 `
 

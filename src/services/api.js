@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const apis = () => {
-  const endpoint = 'http://localhost:9000'
+const endpoint = 'http://localhost:9000'
 
+const apis = () => {
   return {
     user: {
       create(data) {
