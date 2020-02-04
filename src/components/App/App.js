@@ -24,15 +24,13 @@ export default function App() {
                 Username: {values['username']}
                 <br />
                 Password:{' '}
-                {values['password']
-                  .split('')
-                  .reduce(
-                    (a, c) =>
-                      a.length < 2 || (a.length > 6 && a.length < 9)
-                        ? a + c
-                        : a + '*',
-                    ''
-                  )}
+                {[...values['password']].reduce(
+                  (a, c) =>
+                    a.length < 2 || (a.length > 6 && a.length < 9)
+                      ? a + c
+                      : a + '*',
+                  ''
+                )}
               </div>
               <br />
               นี้ ในการ login ตอนสร้าง Login page เพื่อรับ Jwt token
