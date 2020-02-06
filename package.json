@@ -18,7 +18,8 @@
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "GENERATE_SOURCEMAP=false react-scripts build && firebase deploy"
+    "deploy": "GENERATE_SOURCEMAP=false react-scripts build && firebase deploy",
+    "serve": "yarn build && serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"

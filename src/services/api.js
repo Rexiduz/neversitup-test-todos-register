@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const endpoint = 'http://35.198.226.130:9000'
+const endpoint = 'https://candidate.neversitup.com'
 
 const apis = () => {
   return {
