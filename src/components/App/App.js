@@ -8,9 +8,13 @@ import { Modal, notification as noti, Icon } from 'antd'
 import RegisTestForm from 'components/Form'
 
 export default function App() {
+  const [isLoading, setIsLoading] = React.useState(false)
+
   const onSubmit = async (values, form) => {
     try {
-      const { response: { data } = {} } = await API.user.create(values)
+      setIsLoading(true)
+      const { data } = await API.user.create(values)
+
       if (data) {
         form.resetFields()
         Modal.success({
@@ -44,6 +48,8 @@ export default function App() {
         message: 'Something went wrong!?',
         description: error.message || 'Please re-check form and try again.'
       })
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -54,7 +60,7 @@ export default function App() {
           <Icon type={'user'} /> Create Account
         </h2>
         <FormWrapper>
-          <RegisTestForm onSubmit={onSubmit} />
+          <RegisTestForm onSubmit={onSubmit} isLoading={isLoading} />
         </FormWrapper>
       </Card>
     </Container>

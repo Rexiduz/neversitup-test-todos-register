@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Icon, Input, Button } from 'antd'
 
-const NormalLoginForm = ({ form, onSubmit = () => {} }) => {
+const NormalLoginForm = ({ form, onSubmit = () => {}, isLoading }) => {
   const { getFieldDecorator } = form
   const handleSubmit = e => {
     e.preventDefault()
@@ -52,7 +52,12 @@ const NormalLoginForm = ({ form, onSubmit = () => {} }) => {
         )}
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button
+          type="primary"
+          htmlType="submit"
+          className="login-form-button"
+          loading={isLoading}
+        >
           Create
         </Button>
       </Form.Item>
