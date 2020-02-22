@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const endpoint = 'https://candidate.neversitup.com'
+const endpoint = 'https://candidate.neversitup.com/todo'
 
 const apis = () => {
   return {
